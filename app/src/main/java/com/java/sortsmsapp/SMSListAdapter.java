@@ -22,9 +22,8 @@ public class SMSListAdapter extends RecyclerView.Adapter<SMSListAdapter.ViewHold
     // RecyclerView recyclerView;
     public SMSListAdapter(List<SMSData> listdata) {
         this.listdata = listdata;
-
-        System.out.println("Size of List>>"+this.listdata.size());
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());

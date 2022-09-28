@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         listData = new ArrayList<>();
         listData.add(new SMSData("0277678387", "Hello World", "2022-02-01"));
+        listData.add(new SMSData("0277678387", "Hello World", "2022-02-01"));
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         adapter = new SMSListAdapter(listData);
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void refreshSmsInbox(List<String> smsList, boolean known) {
         contentResolver = getContentResolver();
-        Cursor smscursor = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, "date desc limit 50");
+        Cursor smscursor = contentResolver.query(Uri.parse("content://sms/inbox"), null, null, null, "date desc");
         int indexMsg = smscursor.getColumnIndex("body");
         int indexPhone = smscursor.getColumnIndex("address");
         int indexDate = smscursor.getColumnIndex("date");
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         do {
             if (smscursor.getString(smscursor.getColumnIndexOrThrow("type")).contains("1")) {
                 data = new SMSData();
-                sdf = new SimpleDateFormat("dd-MM-yy HH:mm a");
+                sdf = new SimpleDateFormat("dd-MM-yy HH:mm");
                 data.setPhone(smscursor.getString(indexPhone));
                 data.setMessage(smscursor.getString(indexMsg));
                 timestamp = new Timestamp(Long.valueOf(smscursor.getString(indexDate)));

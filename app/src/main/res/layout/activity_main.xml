@@ -15,8 +15,8 @@
             android:layout_width="10dp"
             android:layout_marginLeft="15dp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_green_light"
             android:text="KNOWN"/>
-
 
         <Space
             android:layout_width="37dp"
@@ -29,6 +29,7 @@
             android:layout_marginRight="15dp"
             android:layout_gravity="right"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
             android:text="UNKNOWN" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
